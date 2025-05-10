@@ -29,11 +29,17 @@ const Weather = () => {
     const handelClick=()=>{
         fetchWeather();
     }
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          handelClick(); // Trigger the button action
+        }
+      };
     return (
         <>
-            <div className="flex items-center justify-center h-[100vh] bg-gray-500 shadow-xl">
+            <div className="flex items-center justify-center min-h-[91.2vh] bg-gray-500 shadow-xl">
                 <div className='min-h-[20vh] min-w-[30vw] bg-gray-800 rounded-2xl text-center p-20 '>
-                    <input type="text" name="" id="" className='bg-white rounded  md:px-30 py-2 text-center' placeholder='Enter City' value={city} onChange={handelchange} />
+                <h1 className='text-5xl text-slate-200 mb-15 mt-[-30px] '> <i>Current Weather</i></h1>
+                    <input type="text" name="" id="" className='bg-white rounded  md:px-30 py-2 text-center' onKeyDown={handleKeyDown} placeholder='Enter City' value={city} onChange={handelchange} />
                     <div >
                         <button className=' p-2 bg-slate-300 rounded mt-7 cursor-pointer' onClick={handelClick} >Get Weather</button>
                     </div>
